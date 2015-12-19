@@ -1,12 +1,12 @@
 # p5.gif.js
 
-Let's you play animated gifs in p5.js sketches. Like this:
+p5.gif.js is a library that let's you play animated gifs in p5.js sketches. You load a gif by calling ``loadGif('something.gif') and then can display it using p5's built in ```image()``` function. Like this:
 
 ```
 var gif;
 
 function setup() {
-	c = createCanvas(600,600);
+  c = createCanvas(600,600);
   gif = loadGif('mygif.gif');
 }
 
@@ -20,19 +20,19 @@ function draw() {
 ```
 
 ## Reference
-```loadGif(image)``` loads up a gif and returns a gif object
+```gif = loadGif(image)``` loads up a gif and returns a gif object
 
-```play()``` plays the gif
+```gif.play()``` plays the gif
 
-```pause()``` pauses the gif
+```gif.pause()``` pauses the gif
 
-```playing()``` returns true or false depending on if the gif is currently playing
+```gif.playing()``` returns true or false depending on if the gif is currently playing
 
-```loading()``` returns true or false depending on if the gif has loaded
+```gif.loading()``` returns true or false depending on if the gif has loaded
 
-```frames()``` returns the frames as an array of image data
+```gif.frames()``` returns the frames as an array of image data
 
-```frame([n])``` with no argument, returns the current frame. With an integer, moves the frame to that number.
+```gif.frame([n])``` with no argument, returns the current frame. With an integer as an argument, skips to that frame.
 
 ```totalFrames()``` returns the total number of frames in the gif
 
