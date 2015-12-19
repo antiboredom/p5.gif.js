@@ -1,3 +1,5 @@
+// this is a slightly modified version of buzzfeed's SuperGif (https://github.com/buzzfeed/libgif-js)
+// which is based on shachaf's jsgif (https://github.com/shachaf/jsgif)
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
@@ -420,7 +422,7 @@
     };
 
     var setSizes = function(w, h) {
-      pGraphics.resizeCanvas(w, h);
+      pGraphics.resize(w, h);
       pGraphics.width = w;
       pGraphics.height = h;
     };
@@ -699,8 +701,8 @@
     };
 
     var init = function() {
-      pGraphics = options.p5inst.createGraphics(0, 0);
-      tmpCanvas = pGraphics.elt;
+      pGraphics = options.p5inst.createImage(0, 0);
+      tmpCanvas = pGraphics.canvas;
 
       initialized = true;
     };
@@ -838,4 +840,3 @@ p5.prototype.loadGif = function(url) {
 };
 
 })();
-
