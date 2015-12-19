@@ -2,7 +2,7 @@
 
 p5.gif.js is a library that let's you play animated gifs in p5.js sketches. You load a gif by calling `loadGif('something.gif')` and then can display it using p5's built in `image()` function. Like this:
 
-```
+```javascript
 var gif;
 
 function setup() {
@@ -39,44 +39,44 @@ function draw() {
 ## Examples
 
 ### Load and play an animated gif
-```
+```javascript
 var gif;
 
 function setup() {
-	createCanvas(600, 300);
-	gif = loadGif('test.gif');
+  createCanvas(600, 300);
+  gif = loadGif('test.gif');
 }
 
 function draw() {
-	background(0);
-	if (gif.loaded()) {
-		image(gif, 0, 0);
-	}
+  background(0);
+  if (gif.loaded()) {
+    image(gif, 0, 0);
+  }
 }
 ```
 
 ### Scrub through a gif with your mouse position
-```
+```javascript
 var gif;
 
 function setup() {
-	createCanvas(600, 300);
-	gif = loadGif('test.gif');
-	gif.pause();
+  createCanvas(600, 300);
+  gif = loadGif('test.gif');
+  gif.pause();
 }
 
 function draw() {
-	background(0);
-	if (gif.loaded()) {
-		image(gif, 0, 0);
-	}
+  background(0);
+  if (gif.loaded()) {
+    image(gif, 0, 0);
+  }
 }
 
 function mouseMoved() {
-	if (gif.loaded()) {
-		var frame = int(map(mouseX, 0, width, 0, gif.totalFrames()));
-		gif.frame(frame);
-	}
+  if (gif.loaded()) {
+    var frame = int(map(mouseX, 0, width, 0, gif.totalFrames()));
+    gif.frame(frame);
+  }
 }
 ```
 
