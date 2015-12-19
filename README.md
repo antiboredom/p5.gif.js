@@ -37,4 +37,5 @@ function draw() {
 ```totalFrames()``` returns the total number of frames in the gif
 
 
-
+## Credits
+This library is a very slight modification of [Buzzfeed's SuperGif](https://github.com/buzzfeed/libgif-js), which is a fork of [shachaf's jsgif](https://github.com/shachaf/jsgif)
