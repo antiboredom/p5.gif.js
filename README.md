@@ -6,7 +6,7 @@ p5.gif.js is a library that let's you play animated gifs in p5.js sketches. You 
 var gif;
 
 function setup() {
-  c = createCanvas(600,600);
+  createCanvas(600,600);
   gif = loadGif('mygif.gif');
 }
 
@@ -20,7 +20,7 @@ function draw() {
 ```
 
 ## Reference
-```gif = loadGif(image)``` loads up a gif and returns a gif object
+```gif = loadGif(image)``` loads up a gif and returns a gif object. Warning: this only works with locally hosted gifs.
 
 ```gif.play()``` plays the gif
 
@@ -36,6 +36,49 @@ function draw() {
 
 ```totalFrames()``` returns the total number of frames in the gif
 
+## Examples
+
+### Load and play an animated gif
+```
+var gif;
+
+function setup() {
+	createCanvas(600, 300);
+	gif = loadGif('test.gif');
+}
+
+function draw() {
+	background(0);
+	if (gif.loaded()) {
+		image(gif, 0, 0);
+	}
+}
+```
+
+### Scrub through a gif with your mouse position
+```
+var gif;
+
+function setup() {
+	createCanvas(600, 300);
+	gif = loadGif('test.gif');
+	gif.pause();
+}
+
+function draw() {
+	background(0);
+	if (gif.loaded()) {
+		image(gif, 0, 0);
+	}
+}
+
+function mouseMoved() {
+	if (gif.loaded()) {
+		var frame = int(map(mouseX, 0, width, 0, gif.totalFrames()));
+		gif.frame(frame);
+	}
+}
+```
 
 ## Credits
 This library is a very slight modification of [Buzzfeed's SuperGif](https://github.com/buzzfeed/libgif-js), which is a fork of [shachaf's jsgif](https://github.com/shachaf/jsgif)
