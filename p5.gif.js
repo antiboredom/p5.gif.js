@@ -839,4 +839,34 @@ p5.prototype.loadGif = function(url) {
   return p5graphic;
 };
 
+p5.prototype.loadRawGif = function(data) {
+  var gif = new SuperGif({
+    gif: '',
+    p5inst: this
+  });
+
+  gif.load_raw(data);
+
+  var p5graphic = gif.buffer();
+  p5graphic.play = gif.play;
+  p5graphic.pause = gif.pause;
+  p5graphic.playing = gif.get_playing;
+  p5graphic.frames = gif.get_frames;
+  p5graphic.totalFrames = gif.get_length;
+
+  p5graphic.loaded = function() {
+    return !gif.get_loading();
+  };
+
+  p5graphic.frame = function(num) {
+    if (typeof num === 'number') {
+      gif.move_to(num);
+    } else {
+      return gif.get_current_frame();
+    }
+  };
+
+  return p5graphic;
+};
+
 })();
