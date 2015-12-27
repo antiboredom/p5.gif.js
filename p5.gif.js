@@ -693,6 +693,7 @@
         pushFrame();
         player.init();
         loading = false;
+        console.log('ok');
         if (load_callback) {
           load_callback(gif);
         }
@@ -772,7 +773,6 @@
       },
       load_url: function(src, callback) {
         if (!load_setup(callback)) return;
-
         var h = new XMLHttpRequest();
         h.overrideMimeType('text/plain; charset=x-user-defined');
         h.onloadstart = function() {
@@ -808,13 +808,13 @@
 
 (function() {
 
-p5.prototype.loadGif = function(url) {
+p5.prototype.loadGif = function(url, cb) {
   var gif = new SuperGif({
     gif: url,
     p5inst: this
   });
 
-  gif.load();
+  gif.load(cb);
 
   var p5graphic = gif.buffer();
 
@@ -839,13 +839,13 @@ p5.prototype.loadGif = function(url) {
   return p5graphic;
 };
 
-p5.prototype.loadRawGif = function(data) {
+p5.prototype.loadRawGif = function(data, cb) {
   var gif = new SuperGif({
     gif: '',
     p5inst: this
   });
 
-  gif.load_raw(data);
+  gif.load_raw(data, cb);
 
   var p5graphic = gif.buffer();
   p5graphic.play = gif.play;
