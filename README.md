@@ -25,7 +25,7 @@ function draw() {
 
 ```gif.playing()``` returns true or false depending on if the gif is currently playing
 
-```gif.loading()``` returns true or false depending on if the gif has loaded
+```gif.loaded()``` returns true or false depending on if the gif has loaded
 
 ```gif.frames()``` returns the frames as an array of image data
 
@@ -33,7 +33,7 @@ function draw() {
 
 ```totalFrames()``` returns the total number of frames in the gif
 
-`loadGif()` will return a modified p5Image object, so you can also use any of the [p5Image functions](http://p5js.org/reference/#/p5.Image) like `loadPixes()`, `filter()` or `blend()`.
+`loadGif()` will return a modified p5Image object, so you can also use any of the [p5Image functions](http://p5js.org/reference/#/p5.Image) like `loadPixels()`, `filter()` or `blend()`.
 
 ## Examples
 
