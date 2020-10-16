@@ -702,7 +702,7 @@
     };
 
     var init = function() {
-      pGraphics = options.p5inst.createImage(0, 0);
+      pGraphics = options.p5inst.createImage(1, 1); //0, 0);
       tmpCanvas = pGraphics.canvas;
 
       initialized = true;
